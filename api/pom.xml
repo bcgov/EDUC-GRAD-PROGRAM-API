@@ -31,7 +31,7 @@
         <groupId>org.springframework.boot</groupId>
         <!--grad-releaseGRAD2-1899 Upgarding API to Spring Boot 3.0.2-->
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.2</version>
+        <version>3.0.4</version>
     </parent>
 
     <dependencies>
