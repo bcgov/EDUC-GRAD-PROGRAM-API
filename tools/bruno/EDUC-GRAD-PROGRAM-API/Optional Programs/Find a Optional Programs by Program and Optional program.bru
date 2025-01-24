@@ -1,0 +1,16 @@
+meta {
+  name: Find a Optional Programs by Program and Optional program
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/v1/program/optionalprograms/:programCode/:optionalProgramCode
+  body: none
+  auth: none
+}
+
+params:path {
+  programCode: 
+  optionalProgramCode: 
+}

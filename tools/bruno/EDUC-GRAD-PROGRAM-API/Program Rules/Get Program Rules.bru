@@ -1,0 +1,15 @@
+meta {
+  name: Get Program Rules
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v1/program/programrules
+  body: none
+  auth: none
+}
+
+params:query {
+  programCode: 
+}
