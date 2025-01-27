@@ -1,0 +1,15 @@
+meta {
+  name: Delete a Program Rule
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{baseUrl}}/api/v1/program/programrules/:programRuleID
+  body: none
+  auth: none
+}
+
+params:path {
+  programRuleID: 
+}

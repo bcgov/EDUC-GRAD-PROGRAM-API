@@ -1,0 +1,15 @@
+meta {
+  name: Find a Career Program
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/v1/program/careerprogram/:cpCode
+  body: none
+  auth: none
+}
+
+params:path {
+  cpCode: 
+}

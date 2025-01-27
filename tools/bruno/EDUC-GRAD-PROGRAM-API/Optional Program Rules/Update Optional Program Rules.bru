@@ -1,0 +1,40 @@
+meta {
+  name: Update Optional Program Rules
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{baseUrl}}/api/v1/program/optionalprogramrules
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "createUser": "",
+    "createDate": "",
+    "updateUser": "",
+    "updateDate": "",
+    "optionalProgramRequirementID": "",
+    "optionalProgramID": "",
+    "optionalProgramRequirementCode": {
+      "createUser": "",
+      "createDate": "",
+      "updateUser": "",
+      "updateDate": "",
+      "optProReqCode": "",
+      "label": "",
+      "description": "",
+      "requirementTypeCode": "",
+      "requiredCredits": "",
+      "notMetDesc": "",
+      "requiredLevel": "",
+      "languageOfInstruction": "",
+      "activeRequirement": "",
+      "requirementCategory": "",
+      "traxReqNumber": "",
+      "traxReqChar": ""
+    }
+  }
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Delete Optional Program Rule
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/api/v1/program/optionalprogramrules/:programRuleID
+  body: none
+  auth: none
+}
+
+params:path {
+  programRuleID: 
+}

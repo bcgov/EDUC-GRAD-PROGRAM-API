@@ -1,0 +1,16 @@
+meta {
+  name: Find Optional Program Rules by Program Code and Optional Program Code
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/v1/program/optionalprogramrules/:programCode/:optionalProgramCode
+  body: none
+  auth: none
+}
+
+params:path {
+  programCode: 
+  optionalProgramCode: 
+}

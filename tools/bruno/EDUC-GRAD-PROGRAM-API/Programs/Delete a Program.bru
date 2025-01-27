@@ -1,0 +1,15 @@
+meta {
+  name: Delete a Program
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/api/v1/program/programs/:programCode
+  body: none
+  auth: none
+}
+
+params:path {
+  programCode: 
+}
