@@ -13,7 +13,10 @@
 
     <properties>
         <sonar.language>java</sonar.language>
-        <sonar.exclusions>src/main/resources/**,src/main/java/ca/bc/gov/educ/api/program/exception/**,src/main/java/ca/bc/gov/educ/api/program/model/**
+        <sonar.exclusions>
+            src/main/resources/**,src/main/java/ca/bc/gov/educ/api/program/exception/**,
+            src/main/java/ca/bc/gov/educ/api/program/model/**,
+            src/main/java/ca/bc/gov/educ/api/program/controller/APIMetadataController.java
         </sonar.exclusions>
         <!--<java.version>11</java.version>-->
         <!--grad-releaseGRAD2-1899 Upgarding API to Spring Boot 3.0.2-->
