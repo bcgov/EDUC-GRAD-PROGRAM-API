@@ -1,0 +1,15 @@
+meta {
+  name: Find Specific Rule Details
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/v1/program/programrules/:ruleCode
+  body: none
+  auth: none
+}
+
+params:path {
+  ruleCode: 
+}

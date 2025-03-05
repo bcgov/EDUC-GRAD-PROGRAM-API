@@ -1,0 +1,15 @@
+meta {
+  name: Find a Requirement Type
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/v1/program/gradrequirementtype/:typeCode
+  body: none
+  auth: none
+}
+
+params:path {
+  typeCode: 
+}

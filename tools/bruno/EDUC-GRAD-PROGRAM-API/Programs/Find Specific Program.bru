@@ -1,0 +1,15 @@
+meta {
+  name: Find Specific Program
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/v1/program/programs/:programCode
+  body: none
+  auth: none
+}
+
+params:path {
+  programCode: 
+}

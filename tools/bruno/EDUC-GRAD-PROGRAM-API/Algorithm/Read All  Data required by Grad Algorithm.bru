@@ -1,0 +1,16 @@
+meta {
+  name: Read All  Data required by Grad Algorithm
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/v1/program/algorithmdata
+  body: none
+  auth: none
+}
+
+params:query {
+  programCode: 
+  ~optionalProgramCode: 
+}

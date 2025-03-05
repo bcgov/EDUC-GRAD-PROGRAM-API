@@ -54,6 +54,11 @@ echo Creating config map "$APP_NAME"-config-map
 oc create -n "$GRAD_NAMESPACE"-"$envValue" configmap "$APP_NAME"-config-map \
  --from-literal=APP_LOG_LEVEL="$APP_LOG_LEVEL" \
  --from-literal=ENABLE_FLYWAY="true" \
+ --from-literal=CONNECTION_TIMEOUT='30000' \
+ --from-literal=MAXIMUM_POOL_SIZE='10' \
+ --from-literal=MIN_IDLE='10' \
+ --from-literal=IDLE_TIMEOUT='300000' \
+ --from-literal=MAX_LIFETIME='420000' \
  --dry-run=client -o yaml | oc apply -f -
 echo
 
