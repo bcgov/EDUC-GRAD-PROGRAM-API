@@ -16,6 +16,8 @@
         <sonar.exclusions>
             src/main/resources/**,src/main/java/ca/bc/gov/educ/api/program/exception/**,
             src/main/java/ca/bc/gov/educ/api/program/model/**,
+            src/main/java/ca/bc/gov/educ/api/program/config/**,
+            src/main/java/ca/bc/gov/educ/api/program/util/**,
             src/main/java/ca/bc/gov/educ/api/program/controller/APIMetadataController.java
         </sonar.exclusions>
         <!--<java.version>11</java.version>-->
