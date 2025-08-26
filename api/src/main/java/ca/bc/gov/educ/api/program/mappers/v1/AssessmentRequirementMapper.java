@@ -11,6 +11,4 @@ public interface AssessmentRequirementMapper {
     AssessmentRequirementMapper mapper = Mappers.getMapper(AssessmentRequirementMapper.class);
 
     AssessmentRequirement toStructure(AssessmentRequirementEntity entity);
-
-    AssessmentRequirementEntity toEntity(AssessmentRequirement assessmentRequirement);
 }
