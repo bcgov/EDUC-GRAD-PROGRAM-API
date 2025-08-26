@@ -19,6 +19,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -718,12 +719,13 @@ public class ProgramServiceTest {
 	@Test
 	public void testCreateRequirementTypeCode() {
 		RequirementTypeCode obj = new RequirementTypeCode();
+		var currentDateTime = LocalDateTime.now().toString();
 		obj.setReqTypeCode("DC");
 		obj.setDescription("Data Correction by School");
 		obj.setCreateUser("GRADUATION");
 		obj.setUpdateUser("GRADUATION");
-		obj.setCreateDate(new Date(System.currentTimeMillis()));
-		obj.setUpdateDate(new Date(System.currentTimeMillis()));
+		obj.setCreateDate(currentDateTime);
+		obj.setUpdateDate(currentDateTime);
 		RequirementTypeCodeEntity objEntity = new RequirementTypeCodeEntity();
 		objEntity.setReqTypeCode("DC");
 		objEntity.setDescription("Data Correction by School");
@@ -741,12 +743,13 @@ public class ProgramServiceTest {
 	@Test(expected = GradBusinessRuleException.class)
 	public void testCreateRequirementTypeCode_codeAlreadyExists() {
 		RequirementTypeCode obj = new RequirementTypeCode();
+		var currentDateTime = LocalDateTime.now().toString();
 		obj.setReqTypeCode("DC");
 		obj.setDescription("Data Correction by School");
 		obj.setCreateUser("GRADUATION");
 		obj.setUpdateUser("GRADUATION");
-		obj.setCreateDate(new Date(System.currentTimeMillis()));
-		obj.setUpdateDate(new Date(System.currentTimeMillis()));
+		obj.setCreateDate(currentDateTime);
+		obj.setUpdateDate(currentDateTime);
 		RequirementTypeCodeEntity objEntity = new RequirementTypeCodeEntity();
 		objEntity.setReqTypeCode("DC");
 		objEntity.setDescription("Data Correction by School");
@@ -763,12 +766,13 @@ public class ProgramServiceTest {
 	@Test
 	public void testUpdateRequirementTypeCode() {
 		RequirementTypeCode obj = new RequirementTypeCode();
+		var currentDateTime = LocalDateTime.now().toString();
 		obj.setReqTypeCode("DC");
 		obj.setDescription("Data Correction by Schools");
 		obj.setCreateUser("GRADUATION");
 		obj.setUpdateUser("GRADUATION");
-		obj.setCreateDate(new Date(System.currentTimeMillis()));
-		obj.setUpdateDate(new Date(System.currentTimeMillis()));
+		obj.setCreateDate(currentDateTime);
+		obj.setUpdateDate(currentDateTime);
 		RequirementTypeCodeEntity objEntity = new RequirementTypeCodeEntity();
 		objEntity.setReqTypeCode("DC");
 		objEntity.setDescription("Data Correction by School");
@@ -787,12 +791,13 @@ public class ProgramServiceTest {
 	@Test(expected = GradBusinessRuleException.class)
 	public void testUpdateRequirementTypeCode_codeAlreadyExists() {
 		RequirementTypeCode obj = new RequirementTypeCode();
+		var currentDateTime = LocalDateTime.now().toString();
 		obj.setReqTypeCode("DC");
 		obj.setDescription("Data Correction by Schools");
 		obj.setCreateUser("GRADUATION");
 		obj.setUpdateUser("GRADUATION");
-		obj.setCreateDate(new Date(System.currentTimeMillis()));
-		obj.setUpdateDate(new Date(System.currentTimeMillis()));
+		obj.setCreateDate(currentDateTime);
+		obj.setUpdateDate(currentDateTime);
 		RequirementTypeCodeEntity objEntity = new RequirementTypeCodeEntity();
 		objEntity.setReqTypeCode("DC");
 		objEntity.setDescription("Data Correction by School");
@@ -829,12 +834,13 @@ public class ProgramServiceTest {
 	public void testGetSpecificRequirementTypesCode() {
 		String reqType = "M";
 		RequirementTypeCode obj = new RequirementTypeCode();
+		var currentDateTime = LocalDateTime.now().toString();
 		obj.setReqTypeCode("M");
 		obj.setDescription("MATCH");
 		obj.setCreateUser("GRADUATION");
 		obj.setUpdateUser("GRADUATION");
-		obj.setCreateDate(new Date(System.currentTimeMillis()));
-		obj.setUpdateDate(new Date(System.currentTimeMillis()));
+		obj.setCreateDate(currentDateTime);
+		obj.setUpdateDate(currentDateTime);
 		obj.toString();
 		RequirementTypeCodeEntity objEntity = new RequirementTypeCodeEntity();
 		objEntity.setReqTypeCode("M");
