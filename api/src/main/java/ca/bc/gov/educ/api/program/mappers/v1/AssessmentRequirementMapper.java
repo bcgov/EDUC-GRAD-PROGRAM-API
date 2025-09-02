@@ -5,7 +5,7 @@ import ca.bc.gov.educ.api.program.model.entity.AssessmentRequirementEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(uses = {UUIDMapper.class, LocalDateTimeMapper.class, DateMapper.class})
+@Mapper(uses = {UUIDMapper.class, DateMapper.class})
 public interface AssessmentRequirementMapper {
 
     AssessmentRequirementMapper mapper = Mappers.getMapper(AssessmentRequirementMapper.class);

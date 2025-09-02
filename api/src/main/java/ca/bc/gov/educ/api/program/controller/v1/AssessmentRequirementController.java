@@ -27,7 +27,7 @@ public class AssessmentRequirementController {
     private final AssessmentRequirementService assessmentRequirementService;
 
     @GetMapping
-    @PreAuthorize("hasAuthority('READ_GRAD_PROGRAM')")
+    @PreAuthorize(PermissionsContants.READ_GRAD_PROGRAM)
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "OK"),
         @ApiResponse(responseCode = "500", description = "INTERNAL SERVER ERROR.")

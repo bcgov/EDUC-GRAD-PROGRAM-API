@@ -3,7 +3,6 @@ package ca.bc.gov.educ.api.program.model.dto;
 import java.util.UUID;
 
 import ca.bc.gov.educ.api.program.validator.constraint.IsAllowedValue;
-import org.springframework.stereotype.Component;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,7 +10,6 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Component
 public class AssessmentRequirement extends BaseModel {
 
     private UUID assessmentRequirementId;
