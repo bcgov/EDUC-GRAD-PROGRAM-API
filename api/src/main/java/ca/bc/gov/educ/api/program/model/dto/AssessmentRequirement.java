@@ -2,8 +2,6 @@ package ca.bc.gov.educ.api.program.model.dto;
 
 import java.util.UUID;
 
-import ca.bc.gov.educ.api.program.validator.constraint.IsAllowedValue;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -13,7 +11,6 @@ import lombok.EqualsAndHashCode;
 public class AssessmentRequirement extends BaseModel {
 
     private UUID assessmentRequirementId;
-    @IsAllowedValue(enumName = "AssessmentTypeCodes", message = "Invalid assessment type code.")
     private String assessmentCode;
     private String programRequirementCode;
 }
