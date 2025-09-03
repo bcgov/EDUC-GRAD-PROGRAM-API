@@ -407,4 +407,39 @@ class AssessmentRequirementControllerIntegrationTest {
                     .andExpect(jsonPath("$").value(org.hamcrest.Matchers.hasSize(0)));
         }
     }
+
+    @Nested
+    @DisplayName("Mapper Integration Tests")
+    class MapperIntegrationTests {
+        @Test
+        @WithMockUser(authorities = "SCOPE_READ_GRAD_PROGRAM_CODE_DATA")
+        @DisplayName("Should properly map date fields using DateMapper")
+        void shouldProperlyMapDateFields_UsingDateMapper() throws Exception {
+            // Act
+            String response = mockMvc.perform(get("/api/v1/program/assessment-requirements/{assessmentRequirementId}", testAssessmentRequirementId1)
+                            .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                    .andReturn()
+                    .getResponse()
+                    .getContentAsString();
+
+            // Parse the response to verify date mapping
+            AssessmentRequirement result = objectMapper.readValue(response, AssessmentRequirement.class);
+
+            // Assert date fields are properly mapped as strings
+            assertThat(result.getCreateDate())
+                    .isNotNull()
+                    .isInstanceOf(String.class);
+            
+            assertThat(result.getUpdateDate())
+                    .isNotNull()
+                    .isInstanceOf(String.class);
+
+            // Verify date format matches DateMapper pattern (yyyy-MM-dd'T'HH:mm:ss)
+            String datePattern = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}";
+            assertThat(result.getCreateDate()).matches(datePattern);
+            assertThat(result.getUpdateDate()).matches(datePattern);
+        }
+    }
 }
