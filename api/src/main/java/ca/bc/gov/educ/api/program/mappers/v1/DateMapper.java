@@ -5,13 +5,13 @@ import java.util.Date;
 
 public class DateMapper {
 
-    private final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
     public String map(Date date) {
         if (date == null) {
             return null;
         }
-        return DATE_FORMAT.format(date);
+        return dateFormat.format(date);
     }
 
     public Date map(String dateString) {
@@ -19,7 +19,7 @@ public class DateMapper {
             return null;
         }
         try {
-            return DATE_FORMAT.parse(dateString);
+            return dateFormat.parse(dateString);
         } catch (Exception e) {
             return null;
         }

@@ -41,8 +41,9 @@ class DateMapperTest {
         String result = dateMapper.map(testDate);
 
         // Assert
-        assertThat(result).isNotNull();
-        assertThat(result).isEqualTo("2024-06-15T14:30:45");
+        assertThat(result)
+            .isNotNull()
+            .isEqualTo("2024-06-15T14:30:45");
     }
 
     @Test
@@ -75,8 +76,9 @@ class DateMapperTest {
         Date result = dateMapper.map(validDateString);
 
         // Assert
-        assertThat(result).isNotNull();
-        assertThat(result).isInstanceOf(Date.class);
+        assertThat(result)
+            .isNotNull()
+            .isInstanceOf(Date.class);
     }
 
     @Test
