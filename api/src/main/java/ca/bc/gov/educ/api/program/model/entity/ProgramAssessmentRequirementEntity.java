@@ -16,21 +16,24 @@ import java.util.UUID;
 @DynamicUpdate
 @Entity
 @Builder
-@Table(name = "ASSESSMENT_REQUIREMENT")
-public class AssessmentRequirementEntity extends BaseEntity {
+@Table(name = "PROGRAM_ASSESSMENT_REQUIREMENT")
+public class ProgramAssessmentRequirementEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(generator = "UUID")
     @UuidGenerator
-    @Column(name = "ASSESSMENT_REQUIREMENT_ID", unique = true, updatable = false, columnDefinition = "BINARY(16)")
-    private UUID assessmentRequirementId;
+    @Column(name = "PROGRAM_ASSESSMENT_REQUIREMENT_ID", unique = true, updatable = false, columnDefinition = "BINARY(16)")
+    private UUID programAssessmentRequirementId;
 
     @NotNull(message = "assessment code cannot be null")
     @Size(max = 7, message = "assessment code cannot exceed 7 characters")
     @Column(name = "ASSESSMENT_TYPE_CODE", nullable = false, length = 7)
     private String assessmentCode;
 
-    @NotNull(message= "requirement code cannot be null")
-    @Column(name = "PROGRAM_REQUIREMENT_CODE", nullable = false)
-    private String programRequirementCode;
-} 
+    @NotNull(message= "program requirement code cannot be null")
+    @OneToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "PROGRAM_REQUIREMENT_CODE", referencedColumnName = "PROGRAM_REQUIREMENT_CODE")
+    private ProgramRequirementCodeEntity programRequirementCodeEntity;
+
+
+}

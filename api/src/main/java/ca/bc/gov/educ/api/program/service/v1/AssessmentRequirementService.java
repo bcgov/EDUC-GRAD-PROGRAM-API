@@ -1,38 +1,39 @@
 package ca.bc.gov.educ.api.program.service.v1;
 
-import ca.bc.gov.educ.api.program.exception.EntityNotFoundException;
-import ca.bc.gov.educ.api.program.model.entity.AssessmentRequirementEntity;
-import ca.bc.gov.educ.api.program.repository.v1.AssessmentRequirementRepository;
+import ca.bc.gov.educ.api.program.model.dto.external.algorithm.AssessmentRequirement;
+import ca.bc.gov.educ.api.program.model.entity.ProgramAssessmentRequirementEntity;
+import ca.bc.gov.educ.api.program.model.entity.OptionalProgramAssessmentRequirementEntity;
+import ca.bc.gov.educ.api.program.repository.v1.ProgramAssessmentRequirementRepository;
+import ca.bc.gov.educ.api.program.repository.v1.OptionalProgramAssessmentRequirementRepository;
+import ca.bc.gov.educ.api.program.mappers.v1.AssessmentRequirementMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class AssessmentRequirementService {
 
-    private final AssessmentRequirementRepository assessmentRequirementRepository;
+    private final ProgramAssessmentRequirementRepository programAssessmentRequirementRepository;
+    private final OptionalProgramAssessmentRequirementRepository optionalProgramAssessmentRequirementRepository;
+    private final AssessmentRequirementMapper assessmentRequirementMapper = AssessmentRequirementMapper.mapper;
 
-    public List<AssessmentRequirementEntity> getAllAssessmentRequirements() {
-        return assessmentRequirementRepository.findAll();
+    public List<AssessmentRequirement> getAllAssessmentRequirements() {
+        List<AssessmentRequirement> allRequirements = new ArrayList<>();
+
+        List<ProgramAssessmentRequirementEntity> programRequirements = programAssessmentRequirementRepository.findAll();
+        for (ProgramAssessmentRequirementEntity entity : programRequirements) {
+            allRequirements.add(assessmentRequirementMapper.toStructureFromProgram(entity));
+        }
+        List<OptionalProgramAssessmentRequirementEntity> optionalRequirements = optionalProgramAssessmentRequirementRepository.findAll();
+        for (OptionalProgramAssessmentRequirementEntity entity : optionalRequirements) {
+            allRequirements.add(assessmentRequirementMapper.toStructureFromOptional(entity));
+        }
+        return allRequirements;
     }
 
-    public AssessmentRequirementEntity getAssessmentRequirement(UUID assessmentRequirementId) {
-        Optional<AssessmentRequirementEntity> assessmentRequirementOptional = assessmentRequirementRepository.findById(assessmentRequirementId);
-        return assessmentRequirementOptional.orElseThrow(() -> 
-            new EntityNotFoundException(AssessmentRequirementEntity.class, "assessmentRequirementId", assessmentRequirementId.toString()));
-    }
-
-    public List<AssessmentRequirementEntity> getAssessmentRequirementsByAssessmentCode(String assessmentCode) {
-        return assessmentRequirementRepository.findByAssessmentCode(assessmentCode);
-    }
-
-    public List<AssessmentRequirementEntity> getAssessmentRequirementsByProgramRequirementCode(String programRequirementCode) {
-        return assessmentRequirementRepository.findByProgramRequirementCode(programRequirementCode);
-    }
 } 
