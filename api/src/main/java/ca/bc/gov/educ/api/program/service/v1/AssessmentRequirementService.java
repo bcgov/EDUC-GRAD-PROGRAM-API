@@ -20,7 +20,7 @@ public class AssessmentRequirementService {
 
     private final ProgramAssessmentRequirementRepository programAssessmentRequirementRepository;
     private final OptionalProgramAssessmentRequirementRepository optionalProgramAssessmentRequirementRepository;
-    private final AssessmentRequirementMapper assessmentRequirementMapper = AssessmentRequirementMapper.mapper;
+    private static final AssessmentRequirementMapper assessmentRequirementMapper = AssessmentRequirementMapper.mapper;
 
     public List<AssessmentRequirement> getAllAssessmentRequirements() {
         List<AssessmentRequirement> allRequirements = new ArrayList<>();
