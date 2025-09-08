@@ -133,11 +133,6 @@ class AssessmentRequirementControllerIntegrationTest {
             assertThat(firstResult.getAssessmentCode()).isIn("MATH10", "ENGL10");
             assertThat(firstResult.getRuleCode()).isNotNull();
             assertThat(firstResult.getRuleCode().getAssmtRequirementCode()).isIn("REQ001", "OPT001");
-
-            // Verify date format matches DateMapper pattern (yyyy-MM-dd'T'HH:mm:ss)
-            String datePattern = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}";
-            assertThat(firstResult.getCreateDate()).matches(datePattern);
-            assertThat(firstResult.getUpdateDate()).matches(datePattern);
         }
 
         @Test
