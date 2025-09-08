@@ -1,5 +1,6 @@
 package ca.bc.gov.educ.api.program.config;
 
+import ca.bc.gov.educ.api.program.exception.EntityNotFoundException;
 import org.hibernate.dialect.lock.OptimisticEntityLockException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.jboss.logging.Logger;
@@ -39,6 +40,14 @@ public class RestErrorHandler extends ResponseEntityExceptionHandler {
 		validation.ifWarnings(reponse::addWarningMessages);
 		validation.clear();
 		return new ResponseEntity<>(reponse, HttpStatus.UNPROCESSABLE_ENTITY);
+	}
+
+	@ExceptionHandler(value = { EntityNotFoundException.class })
+	protected ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException ex) {
+		LOG.error(EXCEPTION_ERROR + ex.getClass().getName(), ex);
+		ApiResponseModel<?> response = ApiResponseModel.ERROR(null, ex.getLocalizedMessage());
+		validation.clear();
+		return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
 	}
 
 	@ExceptionHandler(value = { JpaObjectRetrievalFailureException.class, DataRetrievalFailureException.class })
