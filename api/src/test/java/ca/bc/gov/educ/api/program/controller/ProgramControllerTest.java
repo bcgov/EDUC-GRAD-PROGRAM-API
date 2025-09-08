@@ -2,8 +2,8 @@ package ca.bc.gov.educ.api.program.controller;
 
 import static org.junit.Assert.assertNull;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -620,16 +620,16 @@ public class ProgramControllerTest {
 		obj.setDescription("Data Correction by School");
 		obj.setCreateUser("GRADUATION");
 		obj.setUpdateUser("GRADUATION");
-		obj.setCreateDate(LocalDateTime.now().toString());
-		obj.setUpdateDate(LocalDateTime.now().toString());
+		obj.setCreateDate(new Date(System.currentTimeMillis()));
+		obj.setUpdateDate(new Date(System.currentTimeMillis()));
 		gradRequirementTypesList.add(obj);
 		obj = new RequirementTypeCode();
 		obj.setReqTypeCode("CC");
 		obj.setDescription("Courses not complete");
 		obj.setCreateUser("GRADUATION");
 		obj.setUpdateUser("GRADUATION");
-		obj.setCreateDate(LocalDateTime.now().toString());
-		obj.setUpdateDate(LocalDateTime.now().toString());
+		obj.setCreateDate(new Date(System.currentTimeMillis()));
+		obj.setUpdateDate(new Date(System.currentTimeMillis()));
 		gradRequirementTypesList.add(obj);
 		Mockito.when(programService.getAllRequirementTypeCodeList()).thenReturn(gradRequirementTypesList);
 		programController.getAllRequirementTypeCodeList();
@@ -644,8 +644,8 @@ public class ProgramControllerTest {
 		obj.setDescription("Data Correction by School");
 		obj.setCreateUser("GRADUATION");
 		obj.setUpdateUser("GRADUATION");
-		obj.setCreateDate(LocalDateTime.now().toString());
-		obj.setUpdateDate(LocalDateTime.now().toString());
+		obj.setCreateDate(new Date(System.currentTimeMillis()));
+		obj.setUpdateDate(new Date(System.currentTimeMillis()));
 		Mockito.when(programService.getSpecificRequirementTypeCode(requirementType)).thenReturn(obj);
 		programController.getSpecificRequirementTypeCode(requirementType);
 		Mockito.verify(programService).getSpecificRequirementTypeCode(requirementType);
