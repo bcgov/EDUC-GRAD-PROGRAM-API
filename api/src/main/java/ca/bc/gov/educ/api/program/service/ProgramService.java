@@ -396,6 +396,7 @@ public class ProgramService {
 				ent.ifPresent(optionalProgramCodeEntity -> op.setAssociatedCredential(optionalProgramCodeEntity.getAssociatedCredential()));
 			}
 		});
+		logger.debug("Returning optional program list: {}", opList);
 		return opList;
 	}
 
